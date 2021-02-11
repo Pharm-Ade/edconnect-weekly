@@ -29,20 +29,20 @@
             <h2 class="text-nowrap">Submit Project</h2>
         <div class="form-group mt-3">
             <form>
-            <label for="projectname" class="form-label">Project name</label>
-            <input type="text" name="name" class="form-control" placeholder="Enter project name"/>
+            <label for="projectname" name="name" class="form-label">Project name</label>
+            <input type="text"  class="form-control" name="name" placeholder="Enter project name"/>
             </form>
             <form>
                 <label for="projectabstract" class="form-label">Project abstract</label>
-                <textarea name="abstract" class="form-control" rows="6"></textarea>  
+                <textarea class="form-control" rows="6"name="abstract"></textarea>  
             </form>
             <form>
             <label for="authors" class="form-label">Author(s)</label>
-            <input type="text" class="form-control" placeholder="Enter author names(separated by comma)"/>
+            <input type="text"  class="form-control" name="authors" placeholder="Enter author names(separated by comma)"/>
             </form>
             <form>
                 <label for="tags" class="form-label">Tags(s)</label>
-                <input type="text" class="form-control" placeholder="Use # to tag projects with different topics(e.g.#javascript #mongodb)"/>
+                <input type="text"  class="form-control" name="tags" placeholder="Use # to tag projects with different topics(e.g.#javascript #mongodb)"/>
             </form>
             <form>
                 <button type="button" class="btn btn-primary">Continue</button>
