@@ -17,17 +17,7 @@ class DataModel {
    }
    }
 
-    delete(id){
-        let elementsIndex = this.data.find(element => element.id == id )
-        if(elementsIndex > -1){
-            this.data.splice(elementsIndex, 1);
-            return true;
-        }
-        else{
-            return false;
-        }
-        
-    }
+    
     save(obj) {
         if (this.validate(obj)) {
             this.data.push(obj);
@@ -45,6 +35,17 @@ class DataModel {
                 elementsIndex[key] = obj[key];
             }
             return true;
+        }
+        delete(id){
+            let elementsIndex = this.data.find(element => element.id == id )
+            if(elementsIndex > -1){
+                this.data.splice(elementsIndex, 1);
+                return true;
+            }
+            else{
+                return false;
+            }
+            
         }
     // this method will be overriden in the sub classes
     validate(obj) {
