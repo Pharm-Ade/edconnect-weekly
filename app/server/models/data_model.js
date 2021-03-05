@@ -8,13 +8,15 @@ class DataModel {
     }
 
     getById(id) {
-   getId = this.data.find((element) => element.id === id)
-   if (!getId){
+        let getId = this.data.find(ele => ele.id === id)
+   if(!getId){
        return null;
    }
    else{
        return getId;
    }
+
+     
    }
 
     
@@ -42,9 +44,7 @@ class DataModel {
                 this.data.splice(elementsIndex, 1);
                 return true;
             }
-            else{
                 return false;
-            }
             
         }
     // this method will be overriden in the sub classes

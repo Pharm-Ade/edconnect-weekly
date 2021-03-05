@@ -13,24 +13,24 @@ class User {
     }
 
     getFullName() {
-          return `${this.firstname} ${this.lastname}`
+         return `${this.firstname}.${this.lastname}`
     }
 }
 
 class Users extends DataModel {
     authenticate(email, password) {
-    let validUser = this.data.find((element) => element.email === email && element.password === passoword)
-      return (validUser? true:false); 
+    let validUser = this.data.find((element) => element.email === email && element.password === password)
+      return (validUser? true : false); 
     }
 
     getByEmail(email) {
-    let User = this.data.find(user => user.email === email)
-    return User? User:null;
+    let getEmail = this.data.find(ele => ele.email === email)
+    return getEmail? getEmail : null;
     }
 
     getByMatricNumber(matricNumber) {
-        let User = this.data.find(user => user.matricNumber === matricNumber)
-        return User? User:null;
+        let element = this.data.find(ele => ele.matricNumber === matricNumber)
+        return element? element : null;
     }
 
     validate(obj) {
@@ -42,19 +42,8 @@ class Users extends DataModel {
         }
       let valEmail = this.data.find(ele => ele.email === obj.email)
       let valMatric = this.data.find(ele => ele.matricNumber === obj.matricNumber)
-      let valPassword = this.data.find(ele => ele.password.length >= 7? true:false)
-
-      if(valPassword == true && value == true){
-          if(valEmail == false || valEmail == undefined){
-              if(valMatric == false || valMatric == undefined){
-               return true;
-              }
-          }
-          
-      }
-      else{
-          return false;
-      }
+      let valPassword = obj.password.length >= 7;
+      return value && valPassword && !valEmail && !valMatric;
     }
 }
 
