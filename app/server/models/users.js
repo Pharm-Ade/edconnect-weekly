@@ -47,10 +47,10 @@ class Users extends DataModel {
       if(valPassword == true && value == true){
           if(valEmail == false || valEmail == undefined){
               if(valMatric == false || valMatric == undefined){
-
+               return true;
               }
           }
-          return true;
+          
       }
       else{
           return false;
