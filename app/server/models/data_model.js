@@ -9,13 +9,18 @@ class DataModel {
 
     getById(id) {
    getId = this.data.find((element) => element.id === id)
-   return (getId? getId:null);
+   if (!getId){
+       return null;
+   }
+   else{
+       return getId;
+   }
    }
 
     delete(id){
         let elementsIndex = this.data.find(element => element.id == id )
-        if(elementsIndex !== -1){
-            this.data.splice(elementsIndex);
+        if(elementsIndex > -1){
+            this.data.splice(elementsIndex, 1);
             return true;
         }
         else{
@@ -33,13 +38,13 @@ class DataModel {
 
         update(obj, id) {
             let elementsIndex = this.data.find(element => element.id == id )
-            if(elementsIndex !== -1){
-            obj = this.data[elementsIndex];
-            return true; 
-            } 
-            else{
+            if(!elementsIndex){
                 return false;
-            }  
+            }
+            for(let key in obj){
+                elementsIndex[key] = obj[key];
+            }
+            return true;
         }
     // this method will be overriden in the sub classes
     validate(obj) {
